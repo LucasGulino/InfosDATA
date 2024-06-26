@@ -1,3 +1,16 @@
 git add BOULANGER
 git commit -m "Ajout du fichier BOULANGER contenant les informations de l'entreprise"
 git push origin main
+import requests
+from bs4 import BeautifulSoup
+
+def fetch_new_info(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    # Analysez le contenu HTML pour extraire les informations souhaitées
+    # Exemple : info = soup.find('div', class_='info').text
+    return info
+
+url = "http://exemple.com"
+new_info = fetch_new_info(url)
+print(new_info)
